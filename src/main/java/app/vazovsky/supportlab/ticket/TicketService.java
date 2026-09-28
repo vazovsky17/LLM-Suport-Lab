@@ -29,4 +29,9 @@ public class TicketService {
 
         return ticketRepository.save(ticket);
     }
+
+    public Ticket getTicket(UUID id) {
+        return ticketRepository.findById(id)
+                .orElseThrow(() -> new TicketNotFoundException(id));
+    }
 }
